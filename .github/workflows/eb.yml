@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
@@ -14,7 +15,9 @@ jobs:
         node: [14]
     env:
       NODE_ENV: "development"
-steps:
+
+
+    steps:
       - name: Checkout 🛎
         uses: actions/checkout@master
 
@@ -33,7 +36,10 @@ steps:
 
       - name: Installing NPM
         run: npm install
-        
+
+      - name: Linting check
+        run: npm run lint
+
       - name: Building application
         run: npm run build
 
@@ -61,7 +67,7 @@ steps:
           application_name: MyDiaryBackend
           environment_name: Mydiarybackend-env
           region: us-east-1
-          version_label: "version-label-${{ steps.format-time.outputs.replaced }}"
+          version_label: "e-learn-${{ steps.format-time.outputs.replaced }}"
           deployment_package: deploy.zip
 
       - name: Deployed!
