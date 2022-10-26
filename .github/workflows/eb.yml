@@ -1,4 +1,20 @@
-    steps:
+name: production
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+    env:
+      NODE_ENV: "development"
+steps:
       - name: Checkout 🛎
         uses: actions/checkout@master
 
