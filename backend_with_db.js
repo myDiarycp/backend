@@ -6,6 +6,21 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 
+ const users = {
+    users_list:
+    [
+        {
+            subject : "abcd",
+            name : "yoel",
+        },   
+        {
+            subject : "1234",
+            name : "jeremy"
+        }
+    ]
+ }
+
+
 const port = process.env.PORT || 8080;
 
 
@@ -17,16 +32,21 @@ app.get('/', (req, res) => {
 });
 
 app.get('/users', async (req, res) => {
-    const name = req.query['name'];
-    const job = req.query['job'];
-    try {
-        const result = await userServices.getUsers(name, job);
-        res.send({users_list: result});         
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('An error ocurred in the server.');
+    const subject = req.query.subject;
+
+    if(subject != undefined){
+       let result = findUserBySubject(subject);
+       result = {users_list: result};
+       res.send(result);
     }
-});
+    else{
+        const savedUser = await userServices.addUser(user);
+    }
+ });
+
+ const findUserBySubject= (subject) => { 
+    return users['users_list'].filter( (user) => user['subject'] === subject); 
+ }
 
 app.get('/users/:id', async (req, res) => {
     const id = req.params['id'];

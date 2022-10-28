@@ -7,13 +7,31 @@ const UserSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    job: {
+    subject: {
       type: String,
       required: true,
       trim: true,
       validate(value) {
         if (value.length < 2)
-          throw new Error("Invalid job, must be at least 2 characters.");
+          throw new Error("Invalid subject, must be at least 2 characters.");
+      },
+    },
+    userProfile: {
+      type: String,
+      required: true,
+      trim: true,
+      validate(value) {
+        if (value.length < 2)
+          throw new Error("Invalid data, must be at least 2 characters.");
+      },
+    },
+    entries: {
+      type: String, //List?
+      required: true,
+      trim: true,
+      validate(value) {
+        if (value.length < 2)
+          throw new Error("Invalid data, must be at least 2 characters.");
       },
     },
   },
