@@ -32,27 +32,27 @@ app.get('/', (req, res) => {
 });
 
 app.get('/users', async (req, res) => {
-    const subject = req.query.subject;
-
-    if(subject != undefined){
-       let result = findUserBySubject(subject);
-       result = {users_list: result};
-       res.send(result);
+    const name = req.query['name'];
+    try {
+        const result = await userServices.getUsers(name);
+        res.send({users_list: result});         
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('An error ocurred in the server.');
     }
-    else{
+});
+
+app.get('/users/:subject', async (req, res) => { //subject is specified
+    const subject = req.params['subject'];
+    const result = await userServices.findUserBySubject(subject);
+    if (result === undefined || result === null){
+        const user = req.body;
         const savedUser = await userServices.addUser(user);
+        if (savedUser)
+        res.status(201).send(savedUser);
+        else
+        res.status(500).end();
     }
- });
-
- const findUserBySubject= (subject) => { 
-    return users['users_list'].filter( (user) => user['subject'] === subject); 
- }
-
-app.get('/users/:id', async (req, res) => {
-    const id = req.params['id'];
-    const result = await userServices.findUserById(id);
-    if (result === undefined || result === null)
-        res.status(404).send('Resource not found.');
     else {
         res.send({users_list: result});
     }
@@ -78,3 +78,7 @@ app.delete('/users/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+function randomSubject(){
+    return String(Date.now());
+}
