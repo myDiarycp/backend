@@ -72,6 +72,10 @@ async function findUserByNameAndJob(name, job) {
   return await userModel.find({ name: name, job: job });
 }
 
+async function findUserBySubject(subject) { 
+  return await userModel.find({ subject: subject })
+}
+
 async function deleteUser(id) {
   return await userModel.findByIdAndDelete(id);
 }
@@ -86,4 +90,5 @@ exports.findUserById = findUserById;
 exports.findUserByName = findUserByName;
 exports.addUser = addUser;
 exports.deleteUser = deleteUser;
+exports.findUserBySubject = findUserBySubject;
 // exports.disconnectDB = disconnectDB;
