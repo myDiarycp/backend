@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon backend_with_db.js",
     "start": "node backend_with_db.js",
-    "build": "esbuild backend_with_db.jsx --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16"
+    "build": "esbuild backend_with_db.js --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16"
   },
   "author": "",
   "license": "ISC",
