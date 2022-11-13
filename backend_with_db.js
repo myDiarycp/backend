@@ -1,24 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const userServices = require('./models/user-services');
+const userServices = require('./models/diary-services');
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 
 
- const users = {
-    users_list:
-    [
-        {
-            subject : "abcd",
-            name : "yoel",
-        },   
-        {
-            subject : "1234",
-            name : "jeremy"
-        }
-    ]
- }
 
 
 const port = process.env.PORT || 8080;
