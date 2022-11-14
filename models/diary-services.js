@@ -80,6 +80,10 @@ async function deleteUser(id) {
   return await userModel.findByIdAndDelete(id);
 }
 
+async function findUserBySubjectAndUpdate(subject,userData) {
+  return await userModel.findByIdAndUpdate(subject, userData);
+}
+
 // async function disconnectDB() {
 //   await mongoose.connection.close();
 //   await mongoose.disconnect();
@@ -91,4 +95,5 @@ exports.findUserByName = findUserByName;
 exports.addUser = addUser;
 exports.deleteUser = deleteUser;
 exports.findUserBySubject = findUserBySubject;
+exports.findUserBySubjectAndUpdate = findUserBySubjectAndUpdate;
 // exports.disconnectDB = disconnectDB;

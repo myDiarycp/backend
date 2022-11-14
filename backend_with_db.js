@@ -55,15 +55,16 @@ app.post('/users', async (req, res) => {
 });
 
 
-app.put('/users', async (req, res) => { //not Done
-    const user = req.body;
-    const savedUser = await userServices.addUser(user);
-    if (savedUser)
-        res.status(201).send(savedUser);
-    else
-        res.status(500).end();
-});
-
+app.put('/users/:id', async (req, res) => { //CHANGE TO SUBJECT LATER
+        try {
+            await userServices.findUserBySubjectAndUpdate(req.params.id,req.body);
+            res.status(201).send("Updated");
+        }
+        catch(err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+        }
+    });
 app.delete('/users/:id', async (req, res) => {
     const id = req.params['id']; //or req.params.id
     let result = await userServices.deleteUser(id)
