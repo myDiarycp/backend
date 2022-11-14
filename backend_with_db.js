@@ -1,24 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const userServices = require('./models/user-services');
+const userServices = require('./models/diary-services');
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 
 
- const users = {
-    users_list:
-    [
-        {
-            subject : "abcd",
-            name : "yoel",
-        },   
-        {
-            subject : "1234",
-            name : "jeremy"
-        }
-    ]
- }
 
 
 const port = process.env.PORT || 8080;
@@ -67,6 +54,17 @@ app.post('/users', async (req, res) => {
         res.status(500).end();
 });
 
+
+app.put('/users/:id', async (req, res) => { //CHANGE TO SUBJECT LATER
+        try {
+            await userServices.findUserBySubjectAndUpdate(req.params.id,req.body);
+            res.status(201).send("Updated");
+        }
+        catch(err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+        }
+    });
 app.delete('/users/:id', async (req, res) => {
     const id = req.params['id']; //or req.params.id
     let result = await userServices.deleteUser(id)
