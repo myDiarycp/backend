@@ -54,6 +54,16 @@ app.post('/users', async (req, res) => {
         res.status(500).end();
 });
 
+
+app.put('/users', async (req, res) => { //not Done
+    const user = req.body;
+    const savedUser = await userServices.addUser(user);
+    if (savedUser)
+        res.status(201).send(savedUser);
+    else
+        res.status(500).end();
+});
+
 app.delete('/users/:id', async (req, res) => {
     const id = req.params['id']; //or req.params.id
     let result = await userServices.deleteUser(id)
