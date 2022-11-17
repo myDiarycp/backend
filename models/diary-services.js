@@ -24,41 +24,34 @@ mongoose
       useUnifiedTopology: true,
     }
   )
-  .catch((error) => console.log(error));
+  //.catch((error) => console.log(error)); HE HAD THIS COMMENTED OUT
 
-async function getUsers(name, job) {
+async function getUsers() {
   let result;
-  if (name === undefined && job === undefined) {
-    result = await userModel.find();
-  } else if (name && !job) {
-    result = await findUserByName(name);
-  } else if (job && !name) {
-    result = await findUserByJob(job);
-  } else {
-    result = await findUserByNameAndJob(name, job);
-  }
+  result = await userModel.find();
+
   return result;
 }
 
-async function findUserById(id) {
-  try {
-    return await userModel.findById(id);
-  } catch (error) {
-    console.log(error);
-    return undefined;
-  }
-}
+// async function findUserById(id) {
+//   try {
+//     return await userModel.findById(id);
+//   } catch (error) {
+//     console.log(error);
+//     return undefined;
+//   }
+// }
 
 async function addUser(user) {
-  try {
+  //try { HE HAD TALL THESE COMMENTED OUT
     const userToAdd = new userModel(user);
     const savedUser = await userToAdd.save();
     return savedUser;
-  } catch (error) {
-    console.log(error);
-    return false;
+  //} catch (error) {
+    //console.log(error);
+    //return false;
   }
-}
+//}
 
 // async function findUserByName(name) {
 //   return await userModel.find({ name: name });
@@ -90,7 +83,7 @@ async function findUserBySubjectAndUpdate(subject,userData) {
 // }
 
 exports.getUsers = getUsers;
-exports.findUserById = findUserById;
+//exports.findUserById = findUserById;
 //exports.findUserByName = findUserByName;
 exports.addUser = addUser;
 exports.deleteUser = deleteUser;

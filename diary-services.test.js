@@ -16,7 +16,7 @@ test('Testing findUserBySubject -- success', async () => {
 
 test('Testing addUser -- success', async () => {
   user ={ 
-    _id: 'testid',
+    _id: 'testsubject',
     name: 'testname',
     subject: 'testsubject',
     userProfile: 'testprofile',
@@ -32,12 +32,63 @@ test('Testing addUser -- success', async () => {
 
 });
 
+
 test('Testing findUserBySubjectAndUpdate -- success', async () => {
 
-  const add = await userServices.addUser(user); 
+  const preResult = await userServices.findUserBySubject("testsubject")
 
-  const result = await userServices.findUserBySubject("testsubject")
+  user ={ 
+    _id: 'testsubject',
+    name: 'testname',
+    subject: 'testsubject',
+    userProfile: 'testprofile',
+    diary: { "10-11-2022": {
+      "date": "10-11-2022",
+      "title": "My First Entry",
+      "text": "I had a great day!",
+      "rating": 10,
+      "_id": "6370958140cb4709d8981449"
+  }},
+    __v: 0
+  }
 
-  expect(result[0].subject).toBe("testsubject")
+  const put = await userServices.findUserBySubjectAndUpdate("testsubject", user);
+
+  console.log(put);
+
+  const result = await userServices.findUserBySubject("testsubject");
+
+  // console.log(user.diary["10-11-2022"]);
+
+  // console.log(result);
+  // console.log(result[0].diary["10-11-2022"]);
+
+  // expect(result[0].dairy).toBe({
+  //   '10-11-2022' : {
+  //     date: '10-11-2022',
+  //     title: 'My First Entry',
+  //     text: 'I had a great day!',
+  //     rating: 10,
+  //     _id: "6370958140cb4709d8981449"
+  //   }
+  // });
+
+  expect(result[0].subject).toBe("testsubject");
 
 });
+
+test('Testing deleteUser -- success', async () => {
+
+  const result = await userServices.findUserBySubject("testsubject");
+
+  const del = await userServices.deleteUser(result[0].id);
+
+
+  const afterResult = await userServices.findUserBySubject("testsubject")
+
+  expect(afterResult).toEqual([]);
+
+});
+
+
+
