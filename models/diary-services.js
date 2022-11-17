@@ -60,24 +60,24 @@ async function addUser(user) {
   }
 }
 
-async function findUserByName(name) {
-  return await userModel.find({ name: name });
-}
+// async function findUserByName(name) {
+//   return await userModel.find({ name: name });
+// }
 
-async function findUserByJob(job) {
-  return await userModel.find({ job: job });
-}
+// async function findUserByJob(job) {
+//   return await userModel.find({ job: job });
+// }
 
-async function findUserByNameAndJob(name, job) {
-  return await userModel.find({ name: name, job: job });
-}
+// async function findUserByNameAndJob(name, job) {
+//   return await userModel.find({ name: name, job: job });
+// }
 
 async function findUserBySubject(subject) { 
   return await userModel.find({ subject: subject })
 }
 
-async function deleteUser(id) {
-  return await userModel.findByIdAndDelete(id);
+async function deleteUser(subject) {
+  return await userModel.findByIdAndDelete(subject);
 }
 
 async function findUserBySubjectAndUpdate(subject,userData) {
@@ -91,7 +91,7 @@ async function findUserBySubjectAndUpdate(subject,userData) {
 
 exports.getUsers = getUsers;
 exports.findUserById = findUserById;
-exports.findUserByName = findUserByName;
+//exports.findUserByName = findUserByName;
 exports.addUser = addUser;
 exports.deleteUser = deleteUser;
 exports.findUserBySubject = findUserBySubject;
