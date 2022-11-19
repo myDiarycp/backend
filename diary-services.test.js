@@ -54,26 +54,17 @@ test('Testing findUserBySubjectAndUpdate -- success', async () => {
 
   const put = await userServices.findUserBySubjectAndUpdate("testsubject", user);
 
-  console.log(put);
+  //console.log(put);
 
   const result = await userServices.findUserBySubject("testsubject");
 
-  // console.log(user.diary["10-11-2022"]);
+expected = { 
+"date": "10-11-2022", 
+"rating": 10, 
+"text": "I had a great day!", 
+"title": "My First Entry"}
 
-  // console.log(result);
-  // console.log(result[0].diary["10-11-2022"]);
-
-  // expect(result[0].dairy).toBe({
-  //   '10-11-2022' : {
-  //     date: '10-11-2022',
-  //     title: 'My First Entry',
-  //     text: 'I had a great day!',
-  //     rating: 10,
-  //     _id: "6370958140cb4709d8981449"
-  //   }
-  // });
-
-  expect(result[0].subject).toBe("testsubject");
+  expect(result[0].diary.get('10-11-2022')).toMatchObject(expected);
 
 });
 
