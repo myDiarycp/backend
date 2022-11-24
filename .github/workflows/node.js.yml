@@ -8,7 +8,13 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+    
+env:
+  MONGO_DB: ${{ secrets.MONGO_DB }}
+  MONGO_CLUSTER: ${{ secrets.MONGO_CLUSTER }}
+  MONGO_USER: ${{ secrets.MONGO_USER }}
+  MONGO_PWD: ${{ secrets.MONGO_PWD }}
+  
 jobs:
   build:
 
@@ -16,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:

@@ -24,60 +24,53 @@ mongoose
       useUnifiedTopology: true,
     }
   )
-  .catch((error) => console.log(error));
+  //.catch((error) => console.log(error)); HE HAD THIS COMMENTED OUT
 
-async function getUsers(name, job) {
+async function getUsers() {
   let result;
-  if (name === undefined && job === undefined) {
-    result = await userModel.find();
-  } else if (name && !job) {
-    result = await findUserByName(name);
-  } else if (job && !name) {
-    result = await findUserByJob(job);
-  } else {
-    result = await findUserByNameAndJob(name, job);
-  }
+  result = await userModel.find();
+
   return result;
 }
 
-async function findUserById(id) {
-  try {
-    return await userModel.findById(id);
-  } catch (error) {
-    console.log(error);
-    return undefined;
-  }
-}
+// async function findUserById(id) {
+//   try {
+//     return await userModel.findById(id);
+//   } catch (error) {
+//     console.log(error);
+//     return undefined;
+//   }
+// }
 
 async function addUser(user) {
-  try {
+  //try { HE HAD TALL THESE COMMENTED OUT
     const userToAdd = new userModel(user);
     const savedUser = await userToAdd.save();
     return savedUser;
-  } catch (error) {
-    console.log(error);
-    return false;
+  //} catch (error) {
+    //console.log(error);
+    //return false;
   }
-}
+//}
 
-async function findUserByName(name) {
-  return await userModel.find({ name: name });
-}
+// async function findUserByName(name) {
+//   return await userModel.find({ name: name });
+// }
 
-async function findUserByJob(job) {
-  return await userModel.find({ job: job });
-}
+// async function findUserByJob(job) {
+//   return await userModel.find({ job: job });
+// }
 
-async function findUserByNameAndJob(name, job) {
-  return await userModel.find({ name: name, job: job });
-}
+// async function findUserByNameAndJob(name, job) {
+//   return await userModel.find({ name: name, job: job });
+// }
 
 async function findUserBySubject(subject) { 
   return await userModel.find({ subject: subject })
 }
 
-async function deleteUser(id) {
-  return await userModel.findByIdAndDelete(id);
+async function deleteUser(subject) {
+  return await userModel.findByIdAndDelete(subject);
 }
 
 async function findUserBySubjectAndUpdate(subject,userData) {
@@ -90,8 +83,8 @@ async function findUserBySubjectAndUpdate(subject,userData) {
 // }
 
 exports.getUsers = getUsers;
-exports.findUserById = findUserById;
-exports.findUserByName = findUserByName;
+//exports.findUserById = findUserById;
+//exports.findUserByName = findUserByName;
 exports.addUser = addUser;
 exports.deleteUser = deleteUser;
 exports.findUserBySubject = findUserBySubject;

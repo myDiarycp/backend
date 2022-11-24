@@ -19,9 +19,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/users', async (req, res) => {
-    const name = req.query['name'];
+    //const name = req.query['name'];
     try {
-        const result = await userServices.getUsers(name);
+        const result = await userServices.getUsers();
         res.send({users_list: result});         
     } catch (error) {
         console.log(error);
@@ -47,6 +47,7 @@ app.get('/users/:subject', async (req, res) => { //subject is specified
 
 app.post('/users', async (req, res) => {
     const user = req.body;
+    console.log(user)
     const savedUser = await userServices.addUser(user);
     if (savedUser)
         res.status(201).send(savedUser);
@@ -66,8 +67,8 @@ app.put('/users/:id', async (req, res) => { //CHANGE TO SUBJECT LATER
         }
     });
 app.delete('/users/:id', async (req, res) => {
-    const id = req.params['id']; //or req.params.id
-    let result = await userServices.deleteUser(id)
+   //const id = req.params['subject']; //or req.params.id
+    let result = await userServices.deleteUser(req.params.id)
     
         result = "deleted "+ result;
         res.send(result);
