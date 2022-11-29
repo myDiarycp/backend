@@ -18,13 +18,11 @@ mongoose
       "/" +
       process.env.MONGO_DB +
       "?retryWrites=true&w=majority",
-    // "mongodb://localhost:27017/users",
     {
       useNewUrlParser: true, //useFindAndModify: false,
       useUnifiedTopology: true,
     }
   )
-  //.catch((error) => console.log(error)); HE HAD THIS COMMENTED OUT
 
 async function getUsers() {
   let result;
@@ -33,37 +31,11 @@ async function getUsers() {
   return result;
 }
 
-// async function findUserById(id) {
-//   try {
-//     return await userModel.findById(id);
-//   } catch (error) {
-//     console.log(error);
-//     return undefined;
-//   }
-// }
-
 async function addUser(user) {
-  //try { HE HAD TALL THESE COMMENTED OUT
     const userToAdd = new userModel(user);
     const savedUser = await userToAdd.save();
     return savedUser;
-  //} catch (error) {
-    //console.log(error);
-    //return false;
   }
-//}
-
-// async function findUserByName(name) {
-//   return await userModel.find({ name: name });
-// }
-
-// async function findUserByJob(job) {
-//   return await userModel.find({ job: job });
-// }
-
-// async function findUserByNameAndJob(name, job) {
-//   return await userModel.find({ name: name, job: job });
-// }
 
 async function findUserBySubject(subject) { 
   return await userModel.find({ subject: subject })
@@ -77,16 +49,8 @@ async function findUserBySubjectAndUpdate(subject,userData) {
   return await userModel.findByIdAndUpdate(subject, userData);
 }
 
-// async function disconnectDB() {
-//   await mongoose.connection.close();
-//   await mongoose.disconnect();
-// }
-
 exports.getUsers = getUsers;
-//exports.findUserById = findUserById;
-//exports.findUserByName = findUserByName;
 exports.addUser = addUser;
 exports.deleteUser = deleteUser;
 exports.findUserBySubject = findUserBySubject;
 exports.findUserBySubjectAndUpdate = findUserBySubjectAndUpdate;
-// exports.disconnectDB = disconnectDB;
