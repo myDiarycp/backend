@@ -21,10 +21,8 @@ test('Testing addUser -- success', async () => {
 test('Testing getUsers -- success', async () => {
     const result = await userServices.getUsers(); 
 
-    console.log(result);
-
-    expect(result.reverse[0].name).toBe("testname");
-    expect(result.reverse[0].subject).toBe("testsubject")
+    expect(result[result.length - 1].name).toBe("testname");
+    expect(result[result.length - 1].subject).toBe("testsubject")
   });
 
 test('Testing findUserBySubject -- success', async () => {
