@@ -11,3 +11,9 @@ Bakend CI: ![Badge](https://github.com/myDiarycp/backend/actions/workflows/node.
 
 Server Website: [mydiarycp.azurewebsites.net](https://mydiarycp.azurewebsites.net)
 
+#Diagrams
+
+
+[Class Diagram](https://www.google.com)
+
+[Use Case Diagram](https://www.google.com)
