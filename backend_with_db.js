@@ -18,8 +18,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+
+//for all requests the subject and id are expected to be the same
 app.get('/users', async (req, res) => {
-    //const name = req.query['name'];
     try {
         const result = await userServices.getUsers();
         res.send({users_list: result});         
@@ -29,7 +30,7 @@ app.get('/users', async (req, res) => {
     }
 });
 
-app.get('/users/:subject', async (req, res) => { //subject is specified
+app.get('/users/:subject', async (req, res) => {
     const subject = req.params['subject'];
     const result = await userServices.findUserBySubject(subject);
     if (result === undefined || result === null){
@@ -56,7 +57,7 @@ app.post('/users', async (req, res) => {
 });
 
 
-app.put('/users/:id', async (req, res) => { //CHANGE TO SUBJECT LATER
+app.put('/users/:id', async (req, res) => { //id is good because it is the same as subject
         try {
             await userServices.findUserBySubjectAndUpdate(req.params.id,req.body);
             res.status(201).send("Updated");
@@ -67,17 +68,11 @@ app.put('/users/:id', async (req, res) => { //CHANGE TO SUBJECT LATER
         }
     });
 app.delete('/users/:id', async (req, res) => {
-   //const id = req.params['subject']; //or req.params.id
     let result = await userServices.deleteUser(req.params.id)
-    
-        result = "deleted "+ result;
-        res.send(result);
-    
+    result = "deleted "+ result;
+    res.send(result);  
 });
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
-
-function randomSubject(){
-    return String(Date.now());
-}
