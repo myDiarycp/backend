@@ -1,6 +1,4 @@
-
 const mongoose = require("mongoose");
-
 
 const EntrySchema = new mongoose.Schema(
     {
@@ -61,7 +59,6 @@ const UserSchema = new mongoose.Schema(
     { collection: "user_list" }
   );
   
-
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
