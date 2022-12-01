@@ -9,5 +9,5 @@ Azure Deployment: ![Badge](https://github.com/myDiarycp/backend/actions/workflow
 Bakend CI: ![Badge](https://github.com/myDiarycp/backend/actions/workflows/node.js.yml/badge.svg)
 
 
-Server Website: https://mydiarycp.azurewebsites.net/
+Server Website: ![mydiarycp.azurewebsites.net](https://mydiarycp.azurewebsites.net)
 
