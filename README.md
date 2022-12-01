@@ -4,4 +4,10 @@ This is the backend for the diary app. This app allows users to create a login a
 # Project Status
 
 Azure Deployment: ![Badge](https://github.com/myDiarycp/backend/actions/workflows/azure-webapps-node.yml/badge.svg)
+
+
+Bakend CI: ![Badge](https://github.com/myDiarycp/backend/actions/workflows/node.js.yml)/badge.svg)
+
+
 Server Website: https://mydiarycp.azurewebsites.net/
+
