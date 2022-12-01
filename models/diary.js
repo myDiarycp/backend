@@ -45,23 +45,15 @@ const UserSchema = new mongoose.Schema(
         type: String,
         required: true,
         trim: true,
-        validate(value) {
-          if (value.length < 2)
-            throw new Error("Invalid subject, must be at least 2 characters.");
-        },
       },
       userProfile: {
         type: String,
         required: true,
         trim: true,
-        validate(value) {
-          if (value.length < 2)
-            throw new Error("Invalid data, must be at least 2 characters.");
-        },
       },
       diary: {
-        type: Map, //List
-        of: EntrySchema, //
+        type: Map,
+        of: EntrySchema,
         required: true,
         trim: true,
       },
