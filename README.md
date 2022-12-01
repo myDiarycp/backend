@@ -17,3 +17,16 @@ Server Website: [mydiarycp.azurewebsites.net](https://mydiarycp.azurewebsites.ne
 [Class Diagram](https://app.diagrams.net/#HmyDiarycp%2Fbackend%2Fmain%2FClassDiagram.drawio)
 
 [Use Case Diagram](https://app.diagrams.net/#HmyDiarycp%2Fbackend%2Fmain%2FmyDiary.drawio)
+
+# Enviroment Set Up:
+
+Step 1.) Install Express
+Step 2.) We need to install the following dependencies:
+  - npm install "cors": "^2.8.5",
+  - npm install "dotenv": "^16.0.3",
+  - npm install "esbuild": "^0.15.13",
+  - npm install "express": "^4.18.2",
+  - npm install "jest": "^29.3.1",
+  - npm install "mongoose": "^6.6.5",
+  - npm install "webpack": "^5.74.0",
+  - npm install "webpack-cli": "^4.10.0"
