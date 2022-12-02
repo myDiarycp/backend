@@ -27,7 +27,7 @@ Last Updated: 12/02/2022
 
 1.) git clone https://github.com/myDiarycp/backend
 2.) npm install express
-3.) add the .env file with the MONGO_USER, MONGO_PWD, MONGO_DB, and MONGO_CLUSTER
+3.) add the .env file with the MONGO_USER, MONGO_PWD, MONGO_DB, and MONGO_CLUSTER (reach out to other software developers for full .env file. It cannot be posted publicly to prevent security breaches)
 4.) We need to install the following dependencies:
   - npm install "cors": "^2.8.5",
   - npm install "dotenv": "^16.0.3",
