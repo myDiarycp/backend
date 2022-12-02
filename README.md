@@ -13,13 +13,9 @@ Server Website: [mydiarycp.azurewebsites.net](https://mydiarycp.azurewebsites.ne
 
 # Diagrams
 
-Class Diagram:
-
-
-
 [Class Diagram Image](https://github.com/myDiarycp/backend/blob/main/ClassDiagram.png)
 
-[Class Diagram File]https://github.com/myDiarycp/backend/blob/main/ClassDiagram.drawio)
+[Class Diagram File](https://github.com/myDiarycp/backend/blob/main/ClassDiagram.drawio)
 
 [Use Case Diagram Image](https://github.com/myDiarycp/backend/blob/main/UseCase.png)
 
