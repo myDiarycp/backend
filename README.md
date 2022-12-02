@@ -13,10 +13,17 @@ Server Website: [mydiarycp.azurewebsites.net](https://mydiarycp.azurewebsites.ne
 
 # Diagrams
 
+Class Diagram:
 
-[Class Diagram](https://app.diagrams.net/#HmyDiarycp%2Fbackend%2Fmain%2FClassDiagram.drawio)
 
-[Use Case Diagram](https://app.diagrams.net/#HmyDiarycp%2Fbackend%2Fmain%2FmyDiary.drawio)
+
+[Class Diagram Image](https://github.com/myDiarycp/backend/blob/main/ClassDiagram.png)
+
+[Class Diagram File](https://app.diagrams.net/#HmyDiarycp%2Fbackend%2Fmain%2FClassDiagram.drawio)
+
+[Use Case Diagram Image](https://github.com/myDiarycp/backend/blob/main/UseCase.png)
+
+[Use Case Diagram File](https://app.diagrams.net/#HmyDiarycp%2Fbackend%2Fmain%2FmyDiary.drawio)
 
 # Enviroment Set Up:
 
