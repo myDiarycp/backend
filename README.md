@@ -19,11 +19,11 @@ Class Diagram:
 
 [Class Diagram Image](https://github.com/myDiarycp/backend/blob/main/ClassDiagram.png)
 
-[Class Diagram File](https://app.diagrams.net/#HmyDiarycp%2Fbackend%2Fmain%2FClassDiagram.drawio)
+[Class Diagram File]https://github.com/myDiarycp/backend/blob/main/ClassDiagram.drawio)
 
 [Use Case Diagram Image](https://github.com/myDiarycp/backend/blob/main/UseCase.png)
 
-[Use Case Diagram File](https://app.diagrams.net/#HmyDiarycp%2Fbackend%2Fmain%2FmyDiary.drawio)
+[Use Case Diagram File](https://github.com/myDiarycp/backend/blob/main/UseCase.drawio)
 
 # Enviroment Set Up:
 
