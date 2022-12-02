@@ -20,8 +20,10 @@ Server Website: [mydiarycp.azurewebsites.net](https://mydiarycp.azurewebsites.ne
 
 # Enviroment Set Up:
 
-Step 1.) Install Express
-Step 2.) We need to install the following dependencies:
+1.) git clone https://github.com/myDiarycp/backend
+2.) npm install express
+3.) add the .env file with the MONGO_USER, MONGO_PWD, MONGO_DB, and MONGO_CLUSTER
+4.) We need to install the following dependencies:
   - npm install "cors": "^2.8.5",
   - npm install "dotenv": "^16.0.3",
   - npm install "esbuild": "^0.15.13",
